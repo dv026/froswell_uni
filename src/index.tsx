@@ -42,5 +42,5 @@ const skeleton = (
     </ChakraProvider>
 );
 
-//root.render(skeleton); // react 18
-ReactDOM.render(skeleton, container); // react 17
+root.render(skeleton); // react 18
+// ReactDOM.render(skeleton, container); // react 17
