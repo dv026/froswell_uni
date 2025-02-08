@@ -1,7 +1,32 @@
 import path from 'path';
 
-import { buildWebpackConfig } from './config/build/buildWebpackConfig';
-import { BuildEnv, BuildType, BuildPaths } from './config/build/types/config';
+import { buildDevServer } from './buildDevServer';
+import { buildPlugins } from './buildPlugins';
+import { buildLoaders } from './buildLoaders';
+import { buildResolvers } from './buildResolvers';
+
+export function buildWebpackConfig(options: BuildOptions) {
+    const { mode, paths, isDev } = options;
+
+    return {
+        mode,
+        entry: paths.entry,
+        output: {
+            filename: '[name].[contenthash].js',
+            path: paths.build,
+            clean: true,
+            publicPath: '/'
+        },
+        plugins: buildPlugins(options),
+        module: {
+            rules: buildLoaders(options)
+        },
+        resolve: buildResolvers(options),
+        devtool: isDev ? 'eval-cheap-module-source-map' : undefined,
+        devServer: isDev ? buildDevServer(options) : undefined
+    };
+}
+
 
 function getApiUrl(mode: BuildType, apiUrl?: string) {
     if (apiUrl) {
@@ -45,3 +70,33 @@ export default (env: BuildEnv) => {
         project: 'frontend'
     });
 };
+
+export type BuildType = 'production' | 'development';
+
+export interface BuildPaths {
+    entry: string;
+    build: string;
+    html: string;
+    src: string;
+    locales: string;
+    opts: string;
+    buildLocales: string;
+    assets: string;
+    buildAssets: string;
+}
+
+export interface BuildOptions {
+    mode: BuildType;
+    paths: BuildPaths;
+    isDev: boolean;
+    port: number;
+    apiUrl: string;
+    project: 'frontend' | 'storybook' | 'jest';
+}
+
+export interface BuildEnv {
+    mode: BuildType;
+    port: number;
+    apiUrl: string;
+    metrik: string;
+}
