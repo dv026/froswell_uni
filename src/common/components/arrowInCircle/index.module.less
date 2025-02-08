@@ -1,0 +1,52 @@
+@import url("../../../app/styles/common/colors.less");
+
+.aic {
+    display: flex;
+    align-items: center;
+    border-radius: 50%;
+    height: 20px;
+    justify-content: center;
+    transform-origin: center;
+    transition: all 0.2s linear;
+    width: 20px;
+    flex: 0 0 auto;
+    cursor: pointer;
+
+    & &__arrow {
+        border-bottom: 2px solid @control-grey-300;
+        border-right: 2px solid @control-grey-300;
+        height: 50%;
+        margin-top: -18%;
+        transform: rotate(45deg);
+        transition: all 0.2s linear;
+        width: 50%;
+    }
+
+    &:hover {
+        border-color: darken(@control-grey-300, 10%);
+
+        & &__arrow {
+            border-color: darken(@control-grey-300, 10%);
+        }
+    }
+
+    &_right {
+        transform: rotate(-90deg);
+    }
+
+    &_top {
+        transform: rotate(-180deg);
+    }
+
+    &_left {
+        transform: rotate(90deg);
+    }
+
+    &_borderless {
+        border-color: transparent;
+
+        &:hover {
+            border-color: transparent;
+        }
+    }
+}

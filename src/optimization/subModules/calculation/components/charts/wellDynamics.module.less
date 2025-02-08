@@ -1,0 +1,107 @@
+@import url("./../../../../../app/styles/common/colors.less");
+
+.calcOpt {
+    display: flex;
+    width: 60%;
+
+    .calcOpt__wells {
+        flex: 0 0 100px;
+        height: 300px;
+        overflow-y: auto;
+    }
+
+    .calcOpt__well {
+        padding: 5px 5px 5px 10px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: @bg-selected;
+        }
+
+        transition: background-color 0.2s linear;
+
+        &.calcOpt__well_selected {
+            background-color: @bg-selected;
+
+            &:hover {
+                background-color: @bg-selected;
+            }
+        }
+    }
+
+    .calcOpt__chart {
+        .recharts-bar-rectangle {
+            path {
+                fill: @paramColor-pressure;
+            }
+        }
+    }
+
+    .calculation__optimization-chart {
+        .recharts-yAxis .recharts-label tspan {
+            text-anchor: middle;
+        }
+
+        .label {
+            font-size: 12px;
+
+            &.label_finished {
+                fill: #14be3f;
+                stroke: #14be3f;
+            }
+
+            &.label_pending {
+                font-style: italic;
+            }
+
+            &.label_in-work {
+                fill: #008ce1;
+                stroke: #008ce1;
+            }
+        }
+
+        .bar {
+            fill-opacity: 0.5;
+
+            &.bar_pressure {
+                path {
+                    fill: @paramColor-pressure;
+                    stroke: @paramColor-pressure;
+                }
+            }
+
+            &.bar_pressure-inj {
+                path {
+                    fill: dodgerblue;
+                    stroke: dodgerblue;
+                }
+            }
+        }
+
+        .line {
+            path {
+                stroke-width: 2px;
+            }
+
+            &.line_liqrate {
+                path {
+                    stroke: @paramColor-liqrate;
+                }
+            }
+
+            &.line_oilrate {
+                path {
+                    stroke: @paramColor-liqrate;
+                }
+            }
+
+            &.line_threshold {
+                path {
+                    stroke: darkgreen;
+                    stroke-dasharray: 8px 5px;
+                    stroke-width: 2px;
+                }
+            }
+        }
+    }
+}

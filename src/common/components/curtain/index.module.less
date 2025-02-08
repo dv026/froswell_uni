@@ -1,0 +1,90 @@
+@import url('./../../../app/styles/common/colors.less');
+
+@shiftX: 20px;
+
+@shiftY: 10px;
+
+@shiftY_double: 2 * @shiftY;
+
+@side_padding: 10px 15px;
+
+.curtain {
+  position: absolute;
+  z-index: 9;
+  background-color: @bg-white;
+  border-radius: 3px;
+  border: 1px solid @control-grey-300;
+  box-shadow: 0 0 10px rgb(0 0 0 / 10%);
+  max-height: calc(100% - @shiftY_double);
+  max-width: calc(100% - 50px);
+  min-height: 32px;
+  min-width: 100px;
+  overflow: hidden;
+  font-size: 14px;
+  line-height: 18px;
+  overflow-y: auto;
+
+  & &__latch {
+    display: flex;
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    z-index: 3;
+    align-items: center;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  & &__contentGroup {
+    padding: @side_padding;
+
+    &:not(:last-of-type) {
+      border-bottom: 1px solid @control-grey-400;
+    }
+  }
+
+  &_topLeft {
+    left: @shiftX;
+    top: @shiftY;
+  }
+
+  &_topRight {
+    right: @shiftX;
+    top: @shiftY;
+  }
+
+  &_bottomLeft {
+    bottom: @shiftY;
+    left: @shiftX;
+  }
+
+  &_bottomRight {
+    bottom: @shiftY;
+    right: @shiftX;
+  }
+}
+
+.latchBtn {
+  position: absolute;
+  z-index: 2;
+
+  &_topLeft {
+    left: @shiftX;
+    top: @shiftY;
+  }
+
+  &_topRight {
+    right: @shiftX;
+    top: @shiftY;
+  }
+
+  &_bottomLeft {
+    bottom: @shiftY;
+    left: @shiftX;
+  }
+
+  &_bottomRight {
+    bottom: @shiftY;
+    right: @shiftX;
+  }
+}

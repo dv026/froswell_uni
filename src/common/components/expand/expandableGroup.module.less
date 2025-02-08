@@ -1,0 +1,33 @@
+.group {
+    overflow: hidden;
+    padding: 15px 0;
+    transition: max-height 0.2s linear;
+
+    &_opened {
+        /*  */
+    }
+
+    & &__titleText {
+        flex: 2 0 auto;
+        transition: color 0.2s linear;
+        text-transform: uppercase;
+    }
+
+    & &__title {
+        display: flex;
+        align-items: center;
+    }
+
+    & &__separator {
+        flex: 1 1 auto;
+        margin-left: 30px;
+    }
+
+    & &__content {
+        display: flex;
+    }
+
+    &:not(.group_opened) {
+        max-height: 40px;
+    }
+}

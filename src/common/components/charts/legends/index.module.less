@@ -1,0 +1,133 @@
+@import '../../../../app/styles/common/colors.less';
+
+.dashes {
+  position: absolute;
+
+  border: 3px solid white;
+  border-top-width: 0;
+  border-bottom-width: 0;
+  content: '';
+  height: 4px;
+  width: 14px;
+}
+
+.dot {
+  border-top-width: 0;
+  border-bottom-width: 0;
+  content: '';
+  height: 8px;
+  width: 8px;
+}
+
+.legend {
+  display: flex;
+
+  flex: 1 0 auto;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding: 0 15px;
+
+  & &__cell {
+    margin: 10px 5px 0px;
+    max-width: 170px;
+  }
+}
+
+.parameter {
+  border-radius: 7px;
+  padding: 5px;
+
+  cursor: pointer;
+  user-select: none;
+
+  &:hover {
+    background-color: @bg-selected;
+  }
+
+  &_hidden {
+    opacity: 0.5;
+  }
+
+  & &__title {
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  & &__icon {
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+}
+
+.icon {
+  border-radius: 9px;
+  height: 4px;
+  width: 44px;
+
+  &_isDot {
+    .dot();
+  }
+
+  &_dashed {
+    /**/
+
+    &:before {
+      .dashes();
+
+      left: 5px;
+    }
+
+    &:after {
+      .dashes();
+
+      right: 5px;
+    }
+  }
+
+  &_oil {
+    background-color: @paramColor-oilrate;
+  }
+
+  &_gas {
+    background-color: @paramColor-gas;
+  }
+
+  &_liquid {
+    background-color: @paramColor-liqrate;
+  }
+
+  &_injection {
+    background-color: @paramColor-injection;
+  }
+
+  &_pressure {
+    background-color: @paramColor-pressure;
+  }
+
+  &_plastPressure {
+    background-color: @paramColor-pressure;
+    border-radius: 50%;
+    height: 8px;
+    width: 8px;
+  }
+
+  &_watercut {
+    background-color: @paramColor-watercut;
+  }
+
+  &_dynLevel {
+    background-color: @paramColor-dynLevel;
+  }
+
+  &_stock {
+    background-color: @paramColor-stock;
+  }
+
+  &_buckleyLeverettFunction {
+    background-color: @color-green;
+  }
+
+  &_buckleyLeverettDerivativeFunction {
+    background-color: @bg-black;
+  }
+}

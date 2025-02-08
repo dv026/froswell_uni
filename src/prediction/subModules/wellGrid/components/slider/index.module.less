@@ -1,0 +1,43 @@
+@import url("./../../../../../app/styles/common/colors.less");
+
+.mark {
+    position: absolute;
+    top: 10%;
+    height: 40px;
+    margin: 3px;
+    box-sizing: content-box;
+    cursor: pointer;
+
+    &.mark_pressure1 {
+        width: 1px;
+        background-color: @color-grey;
+
+        &::before {
+            color: @color-grey;
+            position: absolute;
+            transform: translate(-50%, -100%);
+        }
+    }
+
+    &.mark_pressure2 {
+        width: 4px;
+        background-color: @color-yellow;
+
+        &::before {
+            color: @color-yellow;
+            position: absolute;
+            transform: translate(-50%, 200%);
+        }
+    }
+
+    &.mark_skinFactor {
+        width: 1px;
+        background-color: @color-grey;
+
+        &::before {
+            color: @color-grey;
+            position: absolute;
+            transform: translate(-50%, -100%);
+        }
+    }
+}

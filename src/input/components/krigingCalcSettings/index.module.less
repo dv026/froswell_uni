@@ -1,0 +1,151 @@
+@import url("../../../../styles//common/colors.less");
+
+.kriging {
+    padding-left: 35px;
+    padding-top: 25px;
+
+    .kriging__title {
+        margin-bottom: 20px;
+        font-weight: bolder;
+        text-transform: uppercase;
+    }
+
+    .kriging__checklist {
+        margin-left: 30px;
+        width: 322px;
+
+        @mgn: 10px;
+
+        .checklist__opt {
+            justify-content: flex-start;
+            margin-top: @mgn;
+
+            &:last-of-type {
+                margin-bottom: @mgn;
+            }
+        }
+
+        .checklist__optLabel {
+            flex: 0 0 320px;
+        }
+    }
+
+    .kriging__group {
+        margin-top: 20px;
+    }
+
+    .kriging__column {
+        flex: 0 1 336px;
+        margin-left: 30px;
+    }
+
+    .kriging__param {
+        display: flex;
+        flex: 1 1 100%;
+        margin-top: 10px;
+    }
+
+    .kriging__paramName {
+        display: block;
+        flex: 1 0 auto;
+    }
+
+    .kriging__numeric {
+        width: 100px;
+    }
+
+    .dropdown_wellTypes {
+        width: 100px;
+    }
+
+    .kriging__close {
+        position: absolute;
+        right: 10px;
+        top: 30px;
+        z-index: 3;
+        height: 22px;
+        opacity: 0.8;
+        width: 22px;
+        cursor: pointer;
+        transition: opacity 0.2s linear;
+
+        svg {
+            stroke: @typo-primary;
+            stroke-width: 6px;
+        }
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    .kriging__columnSeparator {
+        display: flex;
+        align-items: center;
+        margin-left: 40px;
+    }
+
+    .kriging__steps {
+        display: flex;
+
+        .kriging__step {
+            flex: 0 0 100%;
+            margin-left: 1px;
+            transition: all 0.2s linear;
+
+            &.kriging__step_hidden {
+                flex: 0 0 0;
+                overflow: hidden;
+                width: 0;
+
+                .kriging__runner {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .kriging__period {
+        margin-left: 30px;
+    }
+
+    .kriging__period-range {
+        margin-top: 20px;
+    }
+
+    .kriging__period-param {
+        margin-top: 5px;
+    }
+}
+
+.kriging .runner {
+    @bg: rgba(255, 183, 187, 1);
+
+    align-items: center;
+    background-color: @bg;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    transition: background-color 0.2s linear;
+
+    &:hover {
+        background-color: darken(@bg, 3%);
+    }
+
+    .runner__title {
+        margin-top: 20px;
+        font-weight: bolder;
+        text-align: center;
+    }
+
+    .runner__check {
+        margin-top: 5px;
+        width: 100%;
+        font-size: 13px;
+
+        .checkbox {
+            margin: 0 auto;
+            margin-top: 5px;
+        }
+    }
+}

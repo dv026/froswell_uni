@@ -1,0 +1,43 @@
+@import url("./../../../../app/styles/common/colors.less");
+
+.scales {
+    display: flex;
+    align-items: center;
+    flex: 0 0 100%;
+
+    .scales__weight {
+        height: 100%;
+
+        &.scales__weight_oil {
+            background-color: @color-brown;
+            text-align: start;
+            margin-left: 4px;
+
+            &::before {
+                content: "";
+                position: absolute;
+                background-color: @color-brown;
+                border-bottom-left-radius: 100%;
+                border-top-left-radius: 100%;
+                width: 8px;
+                height: 8px;
+                margin-left: -4px;
+            }
+        }
+
+        &.scales__weight_water {
+            background-color: @color-blue;
+            text-align: end;
+
+            &::after {
+                content: "";
+                position: absolute;
+                background-color: @color-blue;
+                border-bottom-right-radius: 100%;
+                border-top-right-radius: 100%;
+                width: 8px;
+                height: 8px;
+            }
+        }
+    }
+}

@@ -1,0 +1,26 @@
+@import url("../../../app/styles/common/colors.less");
+
+@paramTypes: pressure, watercut, injection, liqrate, oilrate, transmissibility, fbl, saturation, skinfactor;
+
+.zoomOut {
+    position: absolute;
+    z-index: 1;
+    right: 110px;
+    top: 50px;
+}
+
+.mapWheelWrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+
+    .recharts-wrapper {
+        &.allow-grab {
+            cursor: grab !important;
+        }
+
+        &.grabbing {
+            cursor: grabbing !important;
+        }
+    }
+}

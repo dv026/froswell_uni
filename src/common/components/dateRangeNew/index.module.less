@@ -1,0 +1,274 @@
+@import '../../../app/styles/common/colors.less';
+
+@block: .daterange; // базовый класс компонента
+
+@label_height: 28px; // высота лейблов дат под графиком
+@label_width: 63px; // ширина лейблов дат под графиком
+@label_shift-y: 4px; // отступ лейблов от нижней границы графика
+
+@slider_side: 32px; // сторона слайдера для выбора даты над графиком
+
+@{block} {
+  position: relative;
+
+  border: 1px solid transparent; // TODO: лишний стиль, но без него весь компонент сдвигается вниз
+  height: 100%;
+  width: 100%;
+
+  & &__overlay {
+    display: none;
+  }
+
+  & &__bg {
+    position: absolute;
+
+    border: 1px solid @control-grey-300;
+    box-sizing: border-box;
+    height: 100%;
+    //height: calc(100% - @slider_side - @slider_side - @label_shift-y - @label_height);
+    //margin-top: @slider_side;
+    //margin-bottom: @slider_side;
+    width: 100%;
+  }
+
+  & &__sliderContainer {
+    display: flex;
+
+    border-left: 2px solid @bg-black;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    height: 100%;
+    transform: translateY(calc(-100% + 2px)); // прибавляется двойной размер бордера у & &__bg
+  }
+
+  & &__label {
+    display: flex;
+
+    align-items: center;
+    background-color: @bg-black;
+    border-radius: 3px;
+    cursor: default;
+    flex: 0 0 @label_height;
+    justify-content: center;
+    overflow: hidden;
+    padding: 3px;
+    transform: translate(-50%, 100%);
+    width: @label_width;
+
+    color: @bg-grey-100;
+    font-size: 12px;
+
+    &:hover {
+      z-index: 999;
+    }
+  }
+
+  & &__labelInner {
+    display: block;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  & &__edge {
+    position: absolute;
+
+    .daterange__label {
+      transform: inherit;
+    }
+
+    &_min {
+      margin-right: @labelXs_width;
+    }
+
+    &_max {
+      //right: 0;
+      margin-left: @labelXs_width;
+    }
+  }
+
+  & &__hidden {
+    display: none;
+  }
+
+  & &__slider {
+    left: -1px;
+    position: absolute;
+    top: 0;
+
+    background-color: @bg-white;
+    border: 1px solid @bg-black;
+    border-radius: 50%;
+    flex: 0 0 @slider_side;
+    height: @slider_side;
+    transform: translate(-50%, -100%);
+    width: @slider_side;
+
+    cursor: pointer;
+
+    &:after {
+      left: 50%;
+      position: absolute;
+      top: 50%;
+
+      border-left: 7px solid transparent;
+      border-right: 7px solid transparent;
+      border-top: 10px solid @icons-grey;
+      content: '';
+      transform: translate(-7px, -3px);
+    }
+  }
+
+  & &__track {
+    position: relative;
+
+    background: none;
+    box-sizing: content-box;
+    height: 100%;
+    // height: calc(100% - @slider_side - @slider_side - @label_height);
+    // margin-top: @slider_side;
+  }
+
+  & &__filledTrack {
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+  }
+
+  & &__trackActive {
+    position: relative;
+    background-color: fade(@typo-link, 10%);
+
+    height: calc(100% - 2px); // вычитается двойной размер бордера у & &__bg
+  }
+
+  & &__range {
+    left: 0;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+
+    height: 100%;
+    width: 100%;
+  }
+
+  &_disabled {
+    opacity: 0.5;
+  }
+
+  @sliderS_side: 32px; // сторона слайдера для выбора даты над графиком
+  @labelS_height: 20px; // высота лейблов дат под графиком
+  @labelS_halfHeight: @labelS_height / 2;
+  &_s {
+    @{block}__bg {
+      height: 100%;
+      // height: calc(100% - @sliderS_side);
+      // margin-top: @sliderS_side;
+    }
+
+    @{block}__slider {
+      flex: 0 0 @sliderS_side;
+      height: @sliderS_side;
+      width: @sliderS_side;
+    }
+
+    @{block}__track {
+      position: relative;
+
+      box-sizing: content-box;
+      height: 100%;
+      // height: calc(100% - @sliderS_side);
+      // margin-top: @sliderS_side;
+    }
+
+    @{block}__label {
+      // position: absolute;
+      // top: calc(50% - @labelS_halfHeight);
+
+      // flex: 0 0 @labelS_height;
+      // transform: translateX(-50%);
+      top: 30px;
+    }
+  }
+
+  @sliderXs_side: 28px; // сторона слайдера для выбора даты над графиком
+  @sliderXs_halfSide: @sliderXs_side / 2; // сторона слайдера для выбора даты над графиком
+  @labelXs_width: 80px;
+  @padding_from_slider: 16px;
+  &_xs {
+    @{block}__bg {
+      height: 100%;
+      margin-top: 0;
+    }
+
+    @{block}__track {
+      position: relative;
+
+      box-sizing: content-box;
+      height: 100%;
+      margin-top: 0;
+    }
+
+    // @{block}__edge {
+    //   display: none;
+    // }
+
+    @{block}__slider {
+      top: calc(50% - @sliderXs_halfSide);
+      z-index: 2;
+
+      flex: 0 0 @sliderXs_side;
+      height: @sliderXs_side;
+      width: @sliderXs_side;
+
+      &:after {
+        transform: translate(-7px, -3px);
+      }
+    }
+
+    @{block}__label {
+      //width: @labelXs_width;
+      &:hover {
+        z-index: initial;
+      }
+    }
+
+    @{block}__sliderContainer {
+      justify-content: center;
+
+      &:first-of-type {
+        @{block}__label {
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
+          padding-right: @padding_from_slider;
+          transform: translateX(-100%);
+        }
+
+        @{block}__slider {
+          transform: translateX(-50%) rotate(-90deg);
+        }
+      }
+
+      &:last-of-type {
+        @{block}__label {
+          border-top-left-radius: 0;
+          border-bottom-left-radius: 0;
+          padding-left: @padding_from_slider;
+          transform: initial;
+        }
+
+        @{block}__slider {
+          transform: translateX(-50%) rotate(90deg);
+        }
+      }
+    }
+  }
+
+  &_offsetBottom {
+    @{block}__edge {
+      margin: 0;
+      top: 55px;
+    }
+  }
+}

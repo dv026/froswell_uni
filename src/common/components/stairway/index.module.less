@@ -1,0 +1,113 @@
+@import url("../../../app/styles/common/colors.less");
+
+@stairway-width: 100px;
+
+.stairway {
+    display: flex;
+    background-color: @bg-brand;
+    flex-direction: column;
+    width: @stairway-width;
+    height: 100%;
+    color: #fff;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 16px;
+
+    .stairway__step {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        height: 84px;
+        justify-content: center;
+        margin: 8px;
+        opacity: 0.8;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        transition: opacity 0.2s ease;
+
+        span {
+            padding: 6px;
+        }
+
+        .counter {
+            display: block;
+            position: absolute;
+            right: 25px;
+            top: 10px;
+            background: red;
+            border-radius: 16px;
+            height: 16px;
+            padding: 0;
+            width: 16px;
+        }
+
+        &.stairway__step_disabled {
+            opacity: 0.3;
+            cursor: default;
+        }
+
+        &.stairway__step_selected {
+            background-color: #182c75;
+            border-radius: 5px;
+            margin: 8px;
+            opacity: 1;
+        }
+
+        &:hover:not(.stairway__step_disabled) {
+            opacity: 0.95;
+        }
+    }
+
+    .stairway__links {
+        display: flex;
+        flex-direction: column;
+
+        .stairway__delimiter {
+            border-top: 2px solid @bg-brand;
+            margin: 8px 0;
+        }
+
+        .stairway__proxy {
+            background-color: #324ba3;
+            border-radius: 7px;
+        }
+    }
+
+    .userInfo {
+        display: flex;
+        flex: 0 0 85px;
+        justify-content: center;
+        margin: 8px;
+        padding: 5px 10px;
+        text-align: center;
+
+        &.userInfo_selected {
+            background-color: #182c75;
+            border-radius: 5px;
+            opacity: 1;
+        }
+
+        .btnLang {
+            border: none;
+            background: none;
+            color: #fff;
+            text-decoration: underline;
+            cursor: pointer;
+
+            &:hover {
+                text-decoration: none;
+            }
+        }
+
+        span.link {
+            cursor: pointer;
+            color: blue;
+            text-decoration: underline;
+        }
+
+        span.link:hover {
+            text-decoration: none;
+        }
+    }
+}

@@ -1,0 +1,21 @@
+.logo {
+  display: flex;
+  align-items: center;
+  flex: 0 0 64px;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+
+  & &__emblem {
+    background-size: 100%;
+    height: 48px;
+    opacity: 1;
+    transition: background-image 0.2s ease-in-out;
+    user-select: none;
+    width: 48px;
+  }
+
+  &:hover &__emblem {
+    opacity: 0.9;
+  }
+}

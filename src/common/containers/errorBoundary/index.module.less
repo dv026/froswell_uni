@@ -1,0 +1,42 @@
+@import url('../../../app/styles/common/colors.less');
+
+.alert {
+  display: flex;
+  width: 100%;
+  min-height: 100%;
+  background-image: url('/public/images/background.png');
+  background-color: @bg-grey-100;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.container {
+  width: 482px;
+  margin: auto;
+  border-radius: 7px;
+  background-color: @bg-white;
+  padding: 10px;
+}
+
+.containerBorder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+
+  border-radius: 7px;
+  border: 1px solid @color-red;
+  padding: 30px 0 10px;
+}
+
+.icon {
+  width: 100px;
+  height: 100px;
+  background-image: url('/public/images/page/errorInfo.svg');
+}
+
+.buttons {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}

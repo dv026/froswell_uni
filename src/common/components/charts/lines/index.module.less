@@ -1,0 +1,68 @@
+@import url("../../../../app/styles/common/colors.less");
+
+.line {
+    > path {
+        fill-opacity: 0;
+        stroke-width: 2;
+    }
+
+    &_dashed {
+        > path {
+            stroke-dasharray: 8 5;
+        }
+    }
+
+    &_dotted {
+        > path {
+            stroke-width: 0;
+        }
+    }
+
+    &_oil {
+        > path {
+            stroke: @paramColor-oilrate;
+        }
+    }
+
+    &_gas {
+        > path {
+            stroke: @paramColor-gas;
+        }
+    }
+
+    &_liquid {
+        > path {
+            stroke: @paramColor-liqrate;
+        }
+    }
+
+    &_injection {
+        > path {
+            stroke: @paramColor-injection;
+        }
+    }
+
+    &_watercut {
+        > path {
+            stroke: @paramColor-watercut;
+        }
+    }
+
+    &_dynLevel {
+        > path {
+            stroke: @paramColor-dynLevel;
+        }
+    }
+
+    &_bottomHolePressure {
+        > path {
+            stroke: @paramColor-pressure;
+        }
+    }
+
+    &_plastPressure {
+        > path {
+            stroke: @paramColor-pressure;
+        }
+    }
+}

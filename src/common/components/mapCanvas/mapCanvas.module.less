@@ -1,0 +1,27 @@
+@import url("./../../../app/styles/common/colors.less");
+
+.mapCanvas {
+    display: flex;
+    flex: 1 0 30%;
+}
+
+:global {
+    #minimap {
+        background-color: @bg-white;
+        border-radius: 7px;
+        border: 1px solid @control-grey-300;
+        box-shadow: 0 0 20px rgb(0 0 0 / 10%);
+        overflow: hidden;
+        z-index: 1;
+
+        #minimapCanvas {
+            position: absolute;
+        }
+    }
+}
+
+.tooltipOilReserves {
+    .reactTooltip__status::after {
+        display: none !important;
+    }
+}

@@ -1,0 +1,94 @@
+.kriging .calc {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .calc__content {
+        width: calc(60% - 140px);
+        text-align: center;
+    }
+
+    .calc__nowName {
+        font-weight: bold;
+    }
+
+    .step__progress {
+        margin: 20px 0;
+    }
+
+    .calc__progress {
+        height: 16px;
+        margin: 5px 0 10px;
+
+        .step__container {
+            display: flex;
+
+            .step__item {
+                width: 100%;
+            }
+
+            .step__left {
+                padding: 2px 4px;
+            }
+
+            .step__right {
+                padding: 2px 4px;
+            }
+        }
+    }
+
+    .calc__stop {
+        &.calc__stopForced {
+        }
+    }
+
+    .calc__toMap {
+        margin-right: 5px;
+    }
+
+    .calc__toParams {
+        margin-left: 5px;
+    }
+
+    .calc__actions {
+        display: flex;
+        flex: 0 0 100%;
+        justify-content: center;
+
+        &.calc__actions_empty {
+            height: 30px;
+        }
+    }
+
+    .calc__back {
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: -37px;
+        text-align: center;
+
+        &:hover {
+            background-color: darken(lightgrey, 3%);
+        }
+    }
+
+    .calc__backTitle {
+        margin-top: 20px;
+        font-weight: bolder;
+        text-align: center;
+    }
+
+    .calc__mapNamesTitle {
+        font-weight: bolder;
+        text-transform: uppercase;
+    }
+
+    .calc__mapName {
+        padding: 3px 0;
+        font-style: italic;
+
+        &:last-of-type {
+            margin-bottom: 40px;
+        }
+    }
+}

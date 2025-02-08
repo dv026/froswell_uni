@@ -1,0 +1,55 @@
+@import '../../../app/styles/common/colors.less';
+
+@typo-primary_selected: rgba(82, 156, 218, 1);
+
+.linkBtn {
+  .linkWithColor(@typo-primary_selected);
+
+  text-decoration: underline;
+
+  cursor: pointer;
+  transition: color, font-weight 0.2s linear;
+
+  & &_red {
+    .linkWithColor(red);
+  }
+
+  & &_grey {
+    .linkWithColor(@control-grey-300);
+  }
+
+  & &_green {
+    .linkWithColor(green);
+  }
+
+  & &_disabled {
+    color: @typo-secondary;
+
+    &:hover {
+      color: @typo-secondary;
+    }
+
+    cursor: default;
+  }
+}
+
+.linkWithColor(@c) {
+  color: @c;
+
+  &:hover {
+    color: darken(@c, 5%);
+  }
+}
+
+.link-border-btn {
+  border-radius: 3px;
+  border: 1px solid @typo-primary_selected;
+  padding: 5px 15px;
+  text-decoration: none;
+  white-space: nowrap;
+
+  &:hover {
+    color: white;
+    background-color: @typo-primary_selected;
+  }
+}

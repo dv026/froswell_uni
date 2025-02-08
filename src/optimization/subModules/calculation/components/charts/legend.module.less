@@ -1,0 +1,94 @@
+@import url("./../../../../../app/styles/common/colors.less");
+
+.chartLegendContainer {
+    display: flex;
+}
+
+.chartLegend {
+    display: flex;
+    justify-content: center;
+    padding-left: 50px;
+    font-size: 12px;
+
+    .chartLegend__error {
+        border-bottom: 4px solid green;
+        margin-right: 10px;
+        padding-bottom: 5px;
+        width: 125px;
+    }
+
+    .chartLegend__clm {
+        display: flex;
+        flex-direction: column;
+        padding: 0 10px;
+    }
+
+    .chartLegend__row {
+        display: flex;
+        align-items: center;
+        padding-bottom: 5px;
+
+        &.chartLegend__row_error {
+            justify-content: flex-end;
+        }
+    }
+
+    .chartLegend__cell {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 5px;
+
+        &.chartLegend__cell_name {
+            flex-basis: 110px;
+            justify-content: flex-start;
+        }
+    }
+
+    .chartLegend__best {
+        width: 15px;
+        height: 15px;
+        background-color: @bg-brand;
+        border-radius: 15px;
+    }
+
+    .chartLegend__line {
+        border-style: dashed;
+        border-width: 2px;
+        border-radius: 2px;
+        height: 2px;
+        width: 45px;
+
+        &.chartLegend__line_oil {
+            border-color: @paramColor-oilrate;
+        }
+
+        &.chartLegend__line_liquid {
+            border-color: @paramColor-liqrate;
+        }
+
+        &.chartLegend__line_calc {
+            border-style: solid;
+        }
+
+        &.chartLegend__line_pressure {
+            border-color: @color-yellow;
+        }
+
+        &.chartLegend__line_pressureInj {
+            border-color: fade(@color-blue, 20%);
+        }
+
+        &.chartLegend__line_pressureBottomHole {
+            border-color: rebeccapurple;
+        }
+
+        &.chartLegend__line_learning {
+            border-color: cadetblue;
+        }
+
+        &.chartLegend__line_test {
+            border-color: olivedrab;
+        }
+    }
+}

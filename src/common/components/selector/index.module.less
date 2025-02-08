@@ -1,0 +1,35 @@
+@import url("../../../app/styles/common/colors.less");
+
+.selector {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .selector__item {
+        display: flex;
+        align-items: center;
+        border: 1px solid @control-grey-300;
+        border-radius: 3px;
+        justify-content: center;
+        margin: 3px 7px;
+        padding: 3px 7px;
+        cursor: pointer;
+
+        &.selector__item_selected {
+            border-color: @bg-brand;
+            color: @bg-brand;
+            font-weight: bold;
+        }
+
+        &:hover {
+            border-color: @bg-brand;
+            color: @bg-brand;
+            transition: color 0.2 linear;
+        }
+    }
+
+    &.selector_disabled {
+        color: @typo-secondary;
+    }
+}

@@ -1,0 +1,309 @@
+@import '../../../app/styles/common/colors.less';
+
+@z-map__controls: 5;
+@z-map__canvas: 1;
+.map {
+  position: absolute;
+
+  // border: 2px solid red;
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+  outline: none;
+  user-select: none;
+
+  cursor: default;
+
+  &.map_in-drag {
+    cursor: move;
+  }
+
+  .map__canvas {
+    z-index: @z-map__canvas;
+
+    height: 100%;
+    width: 100%;
+
+    // transition: all .2s linear;
+    // transition-property: height, width;
+  }
+
+  .mapSVGPanZoom > div[role='navigation'] > svg {
+    pointer-events: visible !important;
+  }
+}
+
+.map__toolsContainer {
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  width: 100%;
+  height: 100%;
+
+  .map__tools {
+    position: absolute;
+
+    z-index: @z-map__controls;
+
+    &.map__tools_zoom {
+      right: 25px;
+      top: 50%;
+
+      transform: translateY(-50%);
+
+      .glyph_plus {
+        height: 14px;
+        width: 14px;
+      }
+
+      .glyph_minus {
+        height: 14px;
+        width: 14px;
+      }
+    }
+
+    &.map__tools_actions {
+      display: flex;
+
+      top: 10px;
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      .glyph_export {
+        height: 18px;
+        width: 18px;
+      }
+
+      .glyph_contour {
+        height: 24px;
+        width: 24px;
+      }
+
+      .glyph_section {
+        height: 22px;
+        width: 22px;
+      }
+
+      .glyph_reserves {
+        height: 24px;
+        width: 24px;
+      }
+    }
+
+    &.map__tools_legend {
+      top: 10px;
+      right: 20px;
+    }
+  }
+}
+
+.map__toolTooltip {
+  border-radius: 20px;
+
+  &:after {
+    content: none;
+  }
+
+  &:before {
+    content: none;
+  }
+}
+
+.wellLabel {
+  @well-label__font-size: 80px;
+
+  cursor: pointer;
+
+  & &__title {
+    stroke-width: 0;
+    text-anchor: middle;
+    font-size: @well-label__font-size;
+
+    &.marked {
+      fill: #3737eb;
+    }
+  }
+}
+
+.oil-well {
+  @color: black;
+
+  .oil-well__title {
+    fill: @typo-primary;
+    font-size: 80px;
+
+    user-select: none;
+  }
+
+  .oil-well__center {
+    fill: @color;
+  }
+
+  .oil-well__horizontal {
+    fill: none;
+    stroke: black;
+    stroke-width: 10px;
+  }
+}
+
+.inj-well {
+  @color: #0064a5;
+
+  .inj-well__title {
+    fill: @typo-primary;
+    font-size: 80px;
+
+    user-select: none;
+  }
+
+  .inj-well__center {
+    fill: @color;
+  }
+
+  .inj-well__horizontal {
+    fill: none;
+    stroke: black;
+    stroke-width: 10px;
+  }
+
+  .inj-well__arrows {
+    fill: none;
+    stroke: @color;
+    stroke-width: 10px;
+  }
+}
+
+.inj-well__interaction {
+  fill: none;
+  stroke: black;
+  stroke-width: 10px;
+
+  &.inj-well__interaction_power-weak {
+    fill: yellow;
+    stroke: yellow;
+  }
+
+  &.inj-well__interaction_power-avg {
+    fill: green;
+    stroke: green;
+  }
+
+  &.inj-well__interaction_power-strong {
+    fill: red;
+    stroke: red;
+  }
+}
+
+.scroll {
+  @primary-side: 100%;
+  @secondary-side: 10px;
+  @padding: 3px;
+
+  position: absolute;
+
+  padding: @padding;
+
+  &.scroll_hidden {
+    display: none;
+  }
+
+  &.scroll_horizontal {
+    bottom: 0;
+    left: 0;
+
+    height: @secondary-side;
+    padding-right: ~'calc(@{padding} + @{secondary-side})';
+    width: @primary-side;
+  }
+
+  &.scroll_vertical {
+    right: 0;
+    top: 0;
+
+    height: @primary-side;
+    padding-bottom: ~'calc(@{padding} + @{secondary-side})';
+    width: @secondary-side;
+  }
+
+  .scroll__bar {
+    background-color: @typo-primary;
+    border-radius: 3px;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+svg.map__canvas g.isolines text {
+  font-size: 80px;
+}
+
+.map__container {
+  bottom: 0;
+  display: flex;
+  position: absolute;
+  right: 25px;
+  bottom: 15px;
+
+  align-items: center;
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 7px;
+  border: 1px solid @control-grey-300;
+  box-shadow: 0 0 20px rgb(0 0 0 / 10%);
+  flex-direction: column;
+  height: 51px;
+  justify-content: center;
+
+  z-index: 1;
+}
+
+.map__cursor_point {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+  padding-left: 5px;
+
+  .cursor__param {
+    min-width: 75px;
+    padding: 0 2px;
+  }
+}
+
+.map__polygon {
+  display: flex;
+
+  justify-content: center;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+
+  .cursor__param {
+    min-width: 100px;
+  }
+}
+
+.calendar {
+  min-width: 80px;
+  height: 24px;
+  border-radius: 3px;
+  border: 1px solid #a0a0b4;
+  padding: 2px;
+  text-align: center;
+}
+
+.improvement-layer {
+  .area {
+    animation: dash 2s linear infinite;
+  }
+}
+
+@keyframes dash {
+  from {
+    stroke-dashoffset: 2333.919921875;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}

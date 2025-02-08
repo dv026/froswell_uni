@@ -1,0 +1,26 @@
+.expand {
+  & &__latch {
+    border: none;
+    flex: 0 0 30px;
+  }
+
+  & &__title {
+    display: flex;
+  }
+
+  & &__titleContent {
+    flex: 1 0 auto;
+  }
+
+  & &__body {
+    overflow: hidden;
+
+    // transition: max-height .2s linear;
+  }
+
+  &_collapsed {
+    .expand__body {
+      max-height: 0;
+    }
+  }
+}

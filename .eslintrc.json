@@ -1,0 +1,57 @@
+{
+    "parser": "@typescript-eslint/parser",
+    "extends": [
+        "prettier",
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "parserOptions": {
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "rules": {
+        "@typescript-eslint/array-type": 0,
+        "@typescript-eslint/explicit-function-return-type": 0,
+        "@typescript-eslint/no-empty-function": 1,
+        "@typescript-eslint/no-empty-interface": 1,
+        "@typescript-eslint/no-inferrable-types": 0,
+        "@typescript-eslint/no-var-requires": 0,
+        "@typescript-eslint/no-use-before-define": 0,
+        "react/display-name": "off",
+        "react/prop-types": 0,
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": [
+            "warn", {
+                "additionalHooks": "useRecoilCallback"
+            }
+        ],
+        "eqeqeq": ["warn", "always"],
+        "no-debugger": "error",
+        "no-alert": "error",
+        "no-dupe-args": "error",
+        "no-extra-boolean-cast": "off",
+        "no-var": "error",
+        "padding-line-between-statements": [
+            "warn",
+            { "blankLine": "always", "prev": "block-like", "next": "*" },
+            { "blankLine": "never", "prev": "block-like", "next": "case" },
+            { "blankLine": "never", "prev": "block-like", "next": "default" }
+        ],
+        "prefer-const": "off",
+        "react/no-unknown-property": "off"
+    },
+    "plugins": [
+        "react-hooks"
+    ],
+    "env": {
+        "browser": true,
+        "node": true,
+        "jest": true
+    },
+    "settings": {
+        "react": {
+          "version": "detect"
+        }
+    }
+}

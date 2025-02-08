@@ -1,0 +1,86 @@
+@import '../../../app/styles/common/colors.less';
+
+@label_height: 28px; // высота лейблов дат под графиком
+@label_width: 63px; // ширина лейблов дат под графиком
+@label_shift-y: 4px; // отступ лейблов от нижней границы графика
+
+@slider_side: 10px; // сторона слайдера для выбора даты над графиком
+@slider_margin_bottom: 35px;
+
+.daterange {
+  position: relative;
+
+  border: 1px solid transparent; // TODO: лишний стиль, но без него весь компонент сдвигается вниз
+  height: 100%;
+  width: 100%;
+
+  & &__overlay {
+    display: none;
+  }
+
+  & &__bg {
+    border: 1px solid @control-grey-300;
+    box-sizing: border-box;
+    height: calc(100% - @slider_side - @slider_margin_bottom - @label_shift-y - @label_height);
+    margin-top: @slider_side;
+    width: 100%;
+  }
+
+  & &__sliderContainer {
+    display: flex;
+
+    border-left: 2px solid @bg-black;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    height: 100%;
+    transform: translateY(calc(-100% + 2px)); // прибавляется двойной размер бордера у & &__bg
+  }
+
+  & &__label {
+    display: flex;
+
+    align-items: center;
+    cursor: default;
+    flex: 0 0 @label_height;
+    justify-content: center;
+    overflow: hidden;
+    transform: translate(-50%, 100%);
+
+    color: @typo-secondary;
+    font-size: 14px;
+
+    &:hover {
+      z-index: 999;
+    }
+  }
+
+  & &__labelInner {
+    display: block;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  & &__edge {
+    position: absolute;
+
+    transform: translateY(2px);
+    .daterange__label {
+      transform: inherit;
+    }
+
+    &_max {
+      right: 0;
+    }
+  }
+
+  & &__hidden {
+    display: none;
+  }
+
+  &_disabled {
+    opacity: 0.5;
+  }
+}

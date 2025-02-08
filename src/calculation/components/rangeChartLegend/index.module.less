@@ -1,0 +1,29 @@
+@import url("./../../../app/styles/common/colors.less");
+
+.daterange__legend {
+    display: flex;
+    margin-top: 35px;
+
+    .daterange__legendItem {
+        display: flex;
+        padding-left: 20px;
+
+        .daterange__thumb {
+            border-radius: 10px;
+            border-width: 2px;
+            height: 0;
+            margin: auto 10px;
+            width: 60px;
+            border-color: @paramColor-oilrate;
+
+            &.daterange__thumb_real {
+                background-color: @paramColor-oilrate;
+                border-style: solid;
+            }
+
+            &.daterange__thumb_calc {
+                border-style: dashed;
+            }
+        }
+    }
+}

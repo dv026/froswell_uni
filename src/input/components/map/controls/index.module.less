@@ -1,0 +1,34 @@
+@import url("./../../../../app/styles/common/colors.less");
+@import url("../../../../common/components/mapCanvas/map.module.less");
+
+@half_width: 400px;
+
+@width: @half_width * 2;
+
+.history {
+    bottom: 10px;
+    display: flex;
+    left: calc(50% - @half_width);
+    position: absolute;
+    z-index: @z-map__controls;
+    align-items: center;
+    background-color: @bg-white;
+    border: 1px solid @control-grey-300;
+    border-radius: 3px;
+    box-shadow: 0 0 10px rgb(0 0 0 / 10%);
+    height: 70px;
+    padding: 10px;
+    width: @width;
+
+    & &__title {
+        display: flex;
+        align-items: center;
+        //margin-right: 20px;
+        width: 120px;
+    }
+
+    & &__range {
+        flex: 1 0 auto;
+        height: 100%;
+    }
+}

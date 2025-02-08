@@ -1,0 +1,549 @@
+@import '../app/styles/common/colors.less';
+
+@color-blue: #2aace2;
+@color-red: #ff0037;
+@typo-primary-gray: rgb(101, 101, 101);
+@color-border-gray: #a6a6a6;
+@color-cell-empty: #f0f0f0;
+
+.page__content {
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
+  width: 100%;
+
+  background-image: url(/public/images/background.png);
+  background-position: 970px 510px;
+  background-repeat: no-repeat;
+
+  .linkBtn {
+    cursor: pointer;
+    color: @color-blue;
+
+    &.red {
+      color: red;
+    }
+  }
+
+  .uploadContainer {
+    display: flex;
+
+    width: 100%;
+    height: 100%;
+
+    .main__content {
+      position: absolute;
+
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      padding: 10px;
+    }
+
+    .delimiter {
+      border-top: 1px solid @control-grey-300;
+      margin: 10px 15px;
+    }
+
+    .oil-fields {
+      display: flex;
+      flex-direction: column;
+      flex-basis: 150px;
+      flex-grow: 1;
+
+      .title {
+        margin: 20px;
+        height: 20px;
+      }
+
+      .well-list {
+        display: flex;
+        flex-direction: column;
+        margin-left: 10px;
+
+        .well__item {
+          padding: 5px 20px;
+          color: @typo-primary-gray;
+          font-weight: 500;
+          cursor: pointer;
+
+          &.active {
+            font-weight: bold;
+            color: black;
+          }
+
+          &:not(.active):hover {
+            font-weight: 500;
+            color: black;
+          }
+
+          .createWell {
+            span {
+              color: @color-blue;
+              margin-top: 5px;
+
+              &:hover {
+                text-decoration: underline;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .navigation {
+      display: flex;
+      flex-direction: column;
+      border-left: 1px solid @control-grey-300;
+      border-bottom: 1px solid @control-grey-300;
+      width: 210px;
+
+      .groupText {
+        text-align: right;
+        padding: 7px 15px 7px 60px;
+        font-weight: bold;
+        color: @typo-primary-gray;
+      }
+
+      .navigationItem {
+        &:first-child {
+          margin-top: 8px;
+        }
+
+        &.all {
+          padding: 10px 0px;
+        }
+
+        .dbFull {
+          padding: 10px 10px 10px 35px;
+
+          span {
+            color: @color-blue;
+
+            &:first-child {
+              font-size: 25px;
+            }
+          }
+        }
+
+        .navButton {
+          margin: 3px 0px 3px 15px;
+          height: 35px;
+          cursor: pointer;
+          color: @typo-primary-gray;
+
+          a {
+            text-decoration: none;
+            color: black;
+          }
+
+          &:hover {
+            background-color: rgb(241, 241, 241);
+          }
+
+          &.active {
+            //background-color: #BFD3F8;
+            color: @color-blue;
+            font-weight: 500;
+          }
+
+          &.disabled {
+            cursor: text;
+          }
+
+          &.generalItem {
+            font-weight: bold;
+          }
+
+          &.infoItem {
+            height: 25px;
+            font-weight: bold;
+          }
+
+          .mark {
+            width: 7px;
+            height: 100%;
+            display: block;
+            position: absolute;
+            font-weight: 400;
+
+            &.numbered {
+              padding: 10px 10px 0px 3px;
+              font-style: italic;
+              color: white;
+            }
+
+            &.uploaded {
+              background-color: #9dbdf5;
+            }
+
+            &.notUploaded {
+              background-color: #dbdbdb;
+            }
+          }
+
+          .navText {
+            padding: 3px 30px 3px 20px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+          }
+        }
+      }
+    }
+
+    .uploadContent {
+      align-items: stretch;
+
+      width: 100%;
+      height: 100%;
+
+      .title {
+        color: @color-blue;
+        margin: 20px;
+        height: 20px;
+      }
+
+      .main__content {
+        h2 {
+          font-weight: 500;
+        }
+
+        .plasts {
+          span {
+            color: @typo-primary-gray;
+            padding-right: 10px;
+            font-weight: bold;
+
+            &.plast__title {
+              color: black;
+              font-weight: 500;
+            }
+
+            &.plast__item {
+              &.active {
+                font-weight: bold;
+                color: black;
+              }
+
+              &:hover {
+                text-decoration: underline;
+                cursor: pointer;
+              }
+            }
+          }
+        }
+
+        .saturation {
+          margin: 20px;
+
+          span {
+            padding-right: 20px;
+
+            &.active {
+              font-weight: 500;
+              text-decoration: underline;
+            }
+
+            &:hover {
+              text-decoration: underline;
+              cursor: pointer;
+            }
+          }
+        }
+
+        .fieldContainer {
+          display: flex;
+          margin: 20px 20px;
+
+          .fieldItem {
+            width: 100%;
+
+            span {
+              font-weight: bold;
+              color: @typo-primary-gray;
+            }
+
+            &.values {
+              text-align: center;
+            }
+
+            &.buttons {
+              padding: 0 20px;
+              display: flex;
+              justify-content: flex-end;
+            }
+          }
+        }
+
+        .content__row {
+          display: flex;
+          align-items: center;
+
+          .nest__group {
+            border-left: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+            height: 40px;
+            padding: 9px;
+            width: 1200px;
+
+            text-align: center;
+          }
+
+          .row__item {
+            span {
+              color: #787878;
+
+              &.error {
+                color: red;
+              }
+            }
+
+            &:first-child {
+              flex-basis: 260px;
+              font-weight: bold;
+            }
+
+            .item__button {
+              a {
+                padding-right: 75px;
+              }
+            }
+          }
+        }
+      }
+
+      .upload__nest {
+        display: flex;
+        flex-direction: column;
+
+        padding: 10px;
+
+        .content__table {
+          margin: 2px 15px;
+        }
+
+        .content__row {
+          // todo mb
+          .plasts {
+            margin: 27px 15px 0 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+
+            span {
+              color: @typo-primary-gray;
+              padding-right: 10px;
+              font-weight: bold;
+
+              &.plast__title {
+                color: black;
+                font-weight: 500;
+              }
+
+              &.plast__item {
+                &.active {
+                  font-weight: bold;
+                  color: black;
+                }
+
+                &:hover {
+                  text-decoration: underline;
+                  cursor: pointer;
+                }
+              }
+            }
+          }
+
+          .nest__group {
+            text-align: center;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+}
+
+// svg classes
+.welcome {
+  .cls-1 {
+    fill: #1a1a18;
+  }
+
+  .cls-2 {
+    fill: #2aaae1;
+  }
+
+  .cls-3 {
+    fill: #35a9e1;
+  }
+
+  .cls-4 {
+    font-size: 15.37px;
+    fill: #474747;
+  }
+}
+
+.files input {
+  outline: 2px dashed #92b0b3;
+  outline-offset: -10px;
+  transition: outline-offset 0.15s ease-in-out, background-color 0.15s linear;
+  padding: 110px 23% 40px 27%;
+  margin: 0;
+  width: 500px;
+  height: 174px;
+}
+.files input:focus {
+  outline: 2px dashed #92b0b3;
+  outline-offset: -10px;
+  -webkit-transition: outline-offset 0.15s ease-in-out, background-color 0.15s linear;
+  transition: outline-offset 0.15s ease-in-out, background-color 0.15s linear;
+  border: 1px solid #92b0b3;
+}
+.files {
+  position: relative;
+}
+.files:after {
+  pointer-events: none;
+  position: absolute;
+  top: 45px;
+  left: 0;
+  width: 50px;
+  right: 0;
+  height: 56px;
+  content: '';
+  background-image: url(https://image.flaticon.com/icons/png/128/109/109612.png);
+  display: block;
+  margin: 0 auto;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+.color input {
+  background-color: #f1f1f1;
+}
+
+.uploadTable {
+  font-size: 12px;
+  color: @typo-primary;
+
+  .headerSingle {
+    border-bottom: 1px solid @bg-brand;
+
+    // &:first-child span {
+    //   text-decoration: underline;
+    //   font-weight: bold;
+    // }
+  }
+
+  .headerCell {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    margin: 0;
+
+    border-top: 1px solid @bg-brand;
+    border-bottom: 1px solid @bg-brand;
+    border-right: 1px solid @bg-brand;
+
+    &:first-child {
+      border-left: 1px solid @bg-brand;
+    }
+
+    &:not(:last-child) {
+      border-right: 1px solid @bg-brand;
+    }
+
+    & > span {
+      padding: 0 8px;
+
+      overflow-wrap: normal;
+      text-transform: none;
+      white-space: normal;
+    }
+  }
+
+  .rowCell {
+    margin: 0;
+    align-items: stretch;
+
+    &:global(.ReactVirtualized__Table__row) {
+      border-left: 1px solid @control-grey-300;
+      border-right: 1px solid @control-grey-300;
+      border-bottom: 1px solid @control-grey-300;
+
+      &:first-child {
+        border-top: 1px solid @control-grey-300;
+      }
+
+      :global(.ReactVirtualized__Table__rowColumn) {
+        &:not(:last-child) {
+          border-right: 1px solid @control-grey-300;
+        }
+      }
+    }
+
+    &.selected {
+      .cellData {
+        background-color: @control-light-red;
+      }
+    }
+
+    .cellData {
+      align-self: stretch;
+      padding: 8px;
+      height: 100%;
+      white-space: normal;
+      display: flex;
+      align-items: center;
+
+      &:not(:last-child) {
+        border-right: 1px solid @control-grey-300;
+      }
+
+      &.empty {
+        background-color: @bg-grey-200;
+        border-right: 1px solid white;
+      }
+
+      &.mark {
+        justify-content: center;
+      }
+
+      &.cellTool {
+        justify-content: left;
+        padding: 2px 16px 2px 5px;
+
+        .smallIcon {
+          font-size: 16px;
+          position: absolute;
+          right: 2px;
+          top: 5px;
+        }
+      }
+
+      &.allow {
+        // color: @color-blue;
+        font-weight: bold;
+      }
+
+      .glyphicon {
+        font-size: 21px;
+
+        &.blue {
+          color: @color-blue;
+        }
+
+        &.red {
+          color: @color-red;
+        }
+      }
+    }
+
+    :global(.ReactVirtualized__Table__rowColumn) {
+      margin: 0;
+    }
+  }
+}

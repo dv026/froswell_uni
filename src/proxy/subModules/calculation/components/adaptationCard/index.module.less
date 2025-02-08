@@ -1,0 +1,44 @@
+@import url("../../../../../app/styles/common/colors.less");
+
+.aCard {
+    display: flex;
+    border-radius: 7px;
+    border: 1px solid @control-grey-300;
+    box-shadow: 0 0 10px rgb(0 0 0 / 5%);
+    margin: 10px;
+    width: 450px;
+    overflow: hidden;
+
+    .aCard__container {
+        width: 100%;
+        padding: 12px;
+    }
+
+    .aCard__title {
+        padding-bottom: 12px;
+        font-size: 18px;
+        line-height: 22px;
+        color: @typo-primary;
+    }
+
+    .aCard__iteration {
+        width: 72px;
+        background-color: fade(@color-red, 10%);
+        color: @typo-red;
+        font-size: 18px;
+        font-weight: bold;
+        line-height: 32px;
+        padding: 6px 0;
+        text-align: center;
+
+        &.aCard__iteration_best {
+            background-color: fade(@color-green, 10%);
+            color: @typo-dark-green;
+        }
+    }
+
+    .aCard__param {
+        height: 25px;
+        padding: 4px 0;
+    }
+}

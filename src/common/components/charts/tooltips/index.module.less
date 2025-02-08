@@ -1,0 +1,66 @@
+@import url('../../../../app/styles/common/colors.less');
+
+.tooltip {
+  background-color: @bg-white;
+  border-radius: 3px;
+  border: 1px solid @control-grey-400;
+  box-shadow: 0 0 10px rgb(0 0 0 / 10%);
+  padding: 5px;
+  z-index: 100100 !important;
+
+  & &__line {
+    padding: 3px 10px;
+  }
+
+  & &__label {
+    font-size: 14px;
+    font-weight: bold;
+  }
+}
+
+.param {
+  display: flex;
+  align-items: center;
+
+  &_liquid {
+    color: @paramColor-liqrate;
+  }
+
+  &_oil {
+    color: @paramColor-oilrate;
+  }
+
+  &_gas {
+    color: @paramColor-gas;
+  }
+
+  &_injection {
+    color: @paramColor-injection;
+  }
+
+  &_pressure {
+    color: @paramColor-pressure;
+  }
+
+  &_watercut {
+    color: @paramColor-watercut;
+  }
+
+  &_dynLevel {
+    color: @paramColor-dynLevel;
+  }
+
+  &_stock {
+    color: @paramColor-stock;
+  }
+
+  & &__name {
+    width: auto;
+  }
+
+  & &__value {
+    margin-left: auto;
+    padding-left: 20px;
+    font-weight: bold;
+  }
+}

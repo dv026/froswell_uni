@@ -1,0 +1,86 @@
+@import url("../../../app/styles/common/colors.less");
+
+@side: 40px;
+
+@border: 1px solid @control-grey-300;
+
+@half-side: 7px;
+
+@inner-border-side-x: 65%;
+
+@inner-border-side-y: 50%;
+
+.tool {
+    display: flex;
+    align-items: center;
+    background-color: rgb(255 255 255 / 100%);
+    justify-content: center;
+    height: @side;
+    width: @side;
+    cursor: pointer;
+
+    &_active {
+        background-color: @control-grey-300;
+    }
+
+    &::after {
+        position: absolute;
+        content: "";
+    }
+
+    &:last-of-type {
+        &::after {
+            content: none;
+        }
+    }
+
+    & &__tooltip {
+        border-radius: 20px;
+
+        &::after {
+            content: none;
+        }
+
+        &::before {
+            content: none;
+        }
+    }
+}
+
+.toolsGroup {
+    display: flex;
+    border-radius: @half-side;
+    border: @border;
+    box-shadow: 0 0 20px rgb(0 0 0 / 10%);
+    overflow: hidden;
+
+    &.toolsGroup_x {
+        flex-direction: row;
+        margin-right: 10px;
+
+        .tool {
+            &::after {
+                right: 0;
+                top: 50%;
+                border-right: 1px solid @control-grey-400;
+                height: @inner-border-side-x;
+                transform: translateY(-50%);
+            }
+        }
+    }
+
+    &.toolsGroup_y {
+        flex-direction: column;
+        margin-bottom: 10px;
+
+        .tool {
+            &::after {
+                bottom: 0;
+                left: 50%;
+                border-bottom: 1px solid @control-grey-400;
+                transform: translateX(-50%);
+                width: @inner-border-side-y;
+            }
+        }
+    }
+}

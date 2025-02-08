@@ -1,0 +1,21 @@
+@import url("../../../../app/styles/common/colors.less");
+
+@color-base: @bg-brand;
+
+.icon {
+    & &__wrench {
+        fill: @color-base;
+        stroke: none !important;
+    }
+
+    & &__background {
+        fill: @bg-white;
+        stroke: @color-base;
+        stroke-width: 2;
+    }
+}
+
+.repairLabel {
+    text-anchor: middle;
+    stroke: @color-base;
+}

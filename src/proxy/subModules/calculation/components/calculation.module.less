@@ -1,0 +1,29 @@
+@import url("../../../../app/styles/common/colors.less");
+
+.calculation {
+    display: flex;
+    align-items: left;
+
+    .calculation__errorsGridContainer {
+        height: 400px;
+        overflow-y: auto;
+        width: 960px;
+    }
+
+    .calculation__infoSide {
+        &.calculation__infoSide_cards {
+            display: flex;
+            align-items: flex-end;
+            flex-direction: column;
+            margin-top: -44px;
+        }
+
+        &.calculation__infoSide_chart {
+            width: 100%;
+        }
+
+        .recharts-yAxis .rechartsLabel tspan {
+            text-anchor: middle;
+        }
+    }
+}

@@ -1,0 +1,84 @@
+@import url('../../../common/components/dateRangeNew/index.module.less');
+@import url('../../../app/styles/common/colors.less');
+
+@z_track: 4;
+
+@z_labels: @z_track - 1;
+
+.adaptation {
+  position: absolute;
+  //z-index: @z_track;
+  height: 110px;
+  transform: translateY(-100%);
+  width: 100%;
+
+  & &__range {
+    height: 100%;
+    width: 100%;
+
+    &_disabled {
+      /*  */
+    }
+  }
+
+  & &__track {
+    background-color: transparent;
+    height: 100%;
+    width: 100%;
+  }
+
+  & &__trackActive {
+    background-color: transparent;
+    height: 100%;
+  }
+
+  & &__label {
+    display: none;
+  }
+
+  & &__labelContainer {
+    /*  */
+  }
+
+  & &__slider {
+    display: block;
+    background-clip: padding-box;
+    background-color: @icons-green;
+    border-left: 2px solid fade(@icons-green, 20%);
+    border-right: 2px solid fade(@icons-green, 20%);
+    box-sizing: border-box;
+    height: 100%;
+    width: 6px;
+
+    @edge_halfside: 6px;
+
+    @edge_side: 2 * @edge_halfside;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      background-color: @icons-green;
+      border-radius: 50%;
+      height: @edge_side;
+      width: @edge_side;
+    }
+
+    &::before {
+      transform: translate(-5px, -9px);
+    }
+
+    &::after {
+      top: 100%;
+      transform: translate(-5px, -1px);
+    }
+  }
+
+  & &__sliderContainer {
+    display: flex;
+    background-color: white;
+    opacity: 1;
+    height: calc(100% - @slider_side);
+    transform: translateY(-100% - @slider_side);
+  }
+}

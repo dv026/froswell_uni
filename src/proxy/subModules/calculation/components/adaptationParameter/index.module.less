@@ -1,0 +1,45 @@
+@import url("../../../../../app/styles/common/colors.less");
+
+.aParam {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 16px;
+
+    &.aParam_learning {
+        color: @color-pink;
+    }
+
+    &.aParam_test {
+        color: @icons-green;
+    }
+
+    .aParam__name {
+        flex: 0 1 auto;
+    }
+
+    .aParam__value {
+        text-align: right;
+        font-size: 14px;
+        line-height: 18px;
+    }
+
+    .aParam__arrow {
+        display: inline;
+    }
+}
+
+.aArrow {
+    flex: 0 0 auto;
+
+    &.aArrow_good {
+        color: @color-green;
+    }
+
+    &.aArrow_bad {
+        color: @color-red;
+    }
+}

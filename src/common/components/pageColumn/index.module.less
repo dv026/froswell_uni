@@ -1,0 +1,30 @@
+@import url("../../../app/styles/common/colors.less");
+
+@wells-width: 300px;
+
+.pageColumn {
+    &&_wells {
+        border-right: 1px solid @control-grey-300;
+        flex-grow: 2;
+        height: 100% !important;
+    }
+
+    &&_content {
+        display: flex;
+        flex-direction: column;
+        flex: 1 0 30%;
+        justify-content: stretch;
+        overflow: hidden;
+    }
+
+    &&_emptyContent {
+        display: flex;
+        align-items: center;
+        border: 2px solid gray;
+        flex-basis: ~"calc(100% - @{wells-width})";
+        flex-direction: column;
+        justify-content: center;
+        color: red;
+        font-size: 18px;
+    }
+}

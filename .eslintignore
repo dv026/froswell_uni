@@ -1,0 +1,6 @@
+# ignore styles for auto-generated translation typings
+src/common/helpers/i18n/dictionary/*.ts
+
+local_modules/**/*.*
+
+src/vendor/types/**/*.*

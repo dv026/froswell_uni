@@ -1,0 +1,1 @@
+let __R_PATH__="https://froswell-dev.teics.com/robot/api",__C_PATH__="https://froswell-dev.teics.com/services/api",__APP_NAME__="Froswell";

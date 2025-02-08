@@ -1,0 +1,129 @@
+@import url('../../../../../app/styles/common/colors.less');
+
+.adaptationChart__area {
+  &.adaptationChart__areaSkinfactor {
+    path {
+      fill: @typo-placeholder;
+      fill-opacity: 0.1;
+    }
+  }
+
+  &.adaptationChart__areaPermeabilities {
+    path {
+      fill: @typo-dark-green;
+      fill-opacity: 0.05;
+    }
+  }
+}
+
+.chartLegend {
+  display: flex;
+  justify-content: center;
+  font-size: 12px;
+
+  .chartLegend__error {
+    border-bottom: 4px solid green;
+    margin-right: 10px;
+    padding-bottom: 5px;
+    width: 125px;
+  }
+
+  .chartLegend__clm {
+    display: flex;
+    //flex: 0 0 250px;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 10px;
+
+    &:not(:first-of-type) {
+      margin-left: 50px;
+    }
+  }
+
+  .chartLegend__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 5px;
+
+    &.chartLegend__row_error {
+      justify-content: flex-end;
+    }
+  }
+
+  .chartLegend__cell {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 5px;
+    text-align: left;
+
+    .chartLegend__cell_line {
+      padding: 0 5px;
+    }
+
+    &_title {
+      font-size: 1.1em;
+      font-weight: bold;
+    }
+  }
+
+  .chartLegend__line {
+    border-radius: 10px;
+    border-style: dashed;
+    border-width: 2px;
+    height: 2px;
+    width: 45px;
+
+    &.chartLegend__line_oil {
+      border-color: @paramColor-oilrate;
+    }
+
+    &.chartLegend__line_liquid {
+      border-color: @paramColor-liqrate;
+    }
+
+    &.chartLegend__line_calc {
+      border-style: solid;
+    }
+
+    &.chartLegend__line_error {
+      border-color: @color-pink;
+    }
+
+    &.chartLegend__line_pressureBottomHole {
+      border-color: @paramColor-pressureBottomHole;
+    }
+  }
+}
+
+.line_liqrate {
+  path {
+    stroke: @paramColor-liqrate;
+    stroke-width: 1px;
+  }
+}
+
+.line_oilrate {
+  path {
+    stroke: @paramColor-oilrate;
+    stroke-width: 1px;
+  }
+}
+
+.line_real {
+  stroke-dasharray: 5px 5px;
+}
+
+.line_error {
+  path {
+    stroke: @color-pink;
+    stroke-width: 3px;
+  }
+}
+
+.line_pressureBottomHole {
+  path {
+    stroke: @paramColor-pressureBottomHole;
+  }
+}

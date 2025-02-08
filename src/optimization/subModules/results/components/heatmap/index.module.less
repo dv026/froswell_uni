@@ -1,0 +1,74 @@
+@import url("../../../../../app/styles/common/colors.less");
+
+@border-color: @control-grey-300;
+
+.comparison {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+
+    .comparison__legend {
+        bottom: 17px;
+        display: flexbox;
+        display: flex;
+        position: fixed;
+        right: 20px;
+        -ms-flex-align: center;
+        align-items: center;
+        background-color: #fff;
+        border: 1px solid #a0a0b4;
+        flex-direction: column;
+        height: 140px;
+        -ms-flex-pack: center;
+        justify-content: center;
+        padding: 0 20px;
+        z-index: 1;
+
+        .comparison__legendItem {
+            color: @typo-primary;
+        }
+    }
+
+    .comparison__options {
+        display: flex;
+        overflow-x: scroll;
+        overflow-y: auto;
+        width: 100%;
+
+        .comparison__option {
+            border-right: 1px solid @border-color;
+            flex: 0 0 700px;
+            margin: 20px 0 20px 20px;
+
+            .comparison__option_header {
+                height: 35px;
+                font-size: 18px;
+                line-height: 22px;
+
+                &.best {
+                    color: red;
+                    font-weight: bold;
+                }
+            }
+
+            .comparison__option_indicators {
+                font-size: 14px;
+                line-height: 18px;
+            }
+
+            .comparison__option_chart {
+                padding-top: 30px;
+
+                .fundTitle {
+                    margin-bottom: 10px;
+                    font-style: normal;
+                    font-weight: bold;
+                    font-size: 14px;
+                    line-height: 18px;
+                }
+            }
+        }
+    }
+}

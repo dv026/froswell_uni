@@ -1,0 +1,511 @@
+@import '../../../app/styles/common/colors.less';
+
+@selected_bg: rgba(230, 230, 230, 1);
+@hovered_bg: lighten(@selected_bg, 4%);
+@item-height: 40px;
+@item-content-height: 36px;
+@animation-collapse: 0.3s linear;
+@roster-width: 300px;
+
+.latch {
+  @side: 18px;
+  display: flex;
+  left: 300px;
+  position: absolute;
+  top: 32px;
+  z-index: 3;
+
+  align-items: center;
+  cursor: pointer;
+  height: 32px;
+  justify-content: center;
+  width: 32px;
+
+  color: @control-grey-400;
+
+  transform: translateY(-50%) translateX(-115%);
+  transition: left @animation-collapse, transform 0.1s linear 0.2s;
+
+  &_collapsed {
+    background: white;
+    border-radius: 50%;
+    border: 1px solid @control-grey-400;
+    left: 0;
+
+    transform: rotate(-180deg) translateY(50%) translateX(50%);
+  }
+
+  &:hover {
+    color: @control-grey-500;
+  }
+}
+
+.roster {
+  display: flex;
+
+  border-right: 1px solid @control-grey-300;
+  flex: 0 0 @roster-width;
+  flex-direction: column;
+  height: 100%;
+  width: @roster-width;
+
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  overflow: hidden;
+
+  transition: flex-basis @animation-collapse;
+  z-index: 0;
+
+  &_collapsed {
+    flex-basis: 0;
+    width: 0;
+  }
+
+  .expand {
+    display: flex;
+
+    flex-direction: column;
+
+    > .expand__title {
+      display: flex;
+
+      flex: 0 0 @item-height;
+    }
+
+    > .expand__body {
+      display: flex;
+
+      flex-direction: column;
+    }
+  }
+
+  .roster__header {
+    display: flex;
+    flex-direction: column;
+
+    padding: 0 10px 10px;
+    width: @roster-width;
+
+    input {
+      border: none;
+      height: 24px;
+      outline: none;
+      width: 100%;
+
+      &::placeholder {
+        font-size: 14px;
+      }
+    }
+  }
+
+  & &__title {
+    padding: 21px 0 13px 0;
+
+    font-size: 14px;
+    line-height: 18px;
+    text-transform: uppercase;
+  }
+
+  & &__list {
+    display: flex;
+
+    flex-direction: column;
+    overflow-y: auto;
+    padding-right: 10px;
+    width: @roster-width;
+  }
+
+  & &__actions {
+    padding: 5px 10px;
+  }
+
+  & &__itemBodyWrapper {
+    display: flex;
+    
+    align-items: center;
+    width: 100%;
+   
+    z-index: 1;
+  }
+
+  & &__itemBody {
+    display: flex;
+
+    align-items: center;
+    width: 100%;
+    height: @item-content-height;
+    overflow: hidden;
+    padding: 0 5px;
+
+    text-overflow: ellipsis;
+
+    .roster__itemTitle {
+      //display: contents; // todo mb
+      flex: 1;
+      min-width: 0;
+      overflow: hidden;
+
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .roster__itemMarks {
+      flex: 0 0 auto;
+      padding-right: 5px;
+    }
+  }
+
+  .expand__title .roster__itemBody {
+    margin-right: 5px;
+  }
+
+  & &__item {
+    display: flex;
+
+    flex: 1 0 auto; //@item-height;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 10px;
+    //min-height: @item-height;
+
+    cursor: pointer;
+    user-select: none;
+
+    .roster__itemBodyWrapper:hover {
+      background-color: @hovered_bg;
+    }
+
+    > .roster__itemWrapper .roster__itemBody:hover,
+    > .expand > .expand__title .roster__itemBody:hover {
+      background-color: @hovered_bg;
+    }
+
+    > .roster__itemWrapper .roster__itemBody,
+    > .expand > .expand__title .roster__itemBody {
+      z-index: 2;
+
+      // margin-right: 5px;
+    }
+
+    > .expand > .expand__title .roster__itemBody,
+    > .roster__itemWrapper .roster__itemBody {
+      flex: 1 0 50%;
+    }
+
+    .roster__itemWrapper {
+      display: flex;
+
+      align-items: center;
+      width: 100%;
+    }
+
+    .roster__itemOptions {
+      display: flex;
+      flex-wrap: wrap;
+
+      align-items: stretch;
+      border-left: 1px solid @control-grey-400;
+      flex: 0 0 80px;
+      padding-left: 4px;
+    }
+
+    .roster__itemArrow {
+      z-index: 2;
+    }
+
+    .roster__itemBg {
+      left: 0;
+      position: absolute;
+      top: 50%;
+
+      background-color: @bg-selected;
+      // border-right: 5px solid @bg-brand;
+      height: 0;
+      width: 100%;
+
+      transform: translateY(-50%);
+      transition: height 0.2s linear;
+    }
+
+    .roster__itemScales {
+      display: flex;
+
+      align-items: stretch;
+      flex: 0 0 70px;
+      height: 8px;
+      opacity: 0.8;
+    }
+
+    > .roster__itemWrapper .roster__itemBody:hover,
+    > .expand > .expand__title .roster__itemBody:hover {
+      .mark_stamp.mark_insim {
+        display: none;
+      }
+
+      .oilTotal {
+        display: flex;
+      }
+    }
+
+    &.roster__item_readonly {
+      cursor: default;
+
+      > .roster__itemWrapper .roster__itemBody:hover,
+      > .expand > .expand__title .roster__itemBody:hover {
+        background-color: inherit;
+      }
+    }
+
+    &.roster__item_hidden {
+      display: none;
+    }
+
+    &.roster__item_selected {
+      > .roster__itemWrapper .roster__itemBg,
+      > .expand > .expand__title .roster__itemBg {
+        height: @item-height;
+      }
+
+      > .roster__itemWrapper .roster__itemBody:hover,
+      > .expand > .expand__title .roster__itemBody:hover {
+        background-color: inherit;
+      }
+    }
+
+    &.roster__item_oilfield {
+      > .roster__itemBody,
+      > .expand > .expand__title .roster__itemBody {
+        color: @typo-primary;
+        //font-weight: bold;
+        text-transform: uppercase;
+      }
+    }
+
+    &.roster__item_object {
+      > .roster__itemWrapper .roster__itemBody,
+      > .expand > .expand__title {
+        //border-bottom: 1px solid @control-grey-300;
+      }
+
+      > .roster__itemBody,
+      > .expand > .expand__title .roster__itemBody {
+        color: @typo-primary;
+        //font-weight: bold;
+      }
+    }
+
+    &.roster__item_scenario {
+      > .roster__itemWrapper .roster__itemBody,
+      > .expand > .expand__title .roster__itemBody {
+        color: @typo-primary
+        // font-weight: bold;
+      }
+
+      &.roster__item_readonly {
+        > .roster__itemWrapper .roster__itemBody,
+        > .expand > .expand__title .roster__itemBody {
+          font-weight: normal;
+        }
+      }
+    }
+
+    &.roster__item_subscenario {
+      > .roster__itemWrapper .roster__itemBody,
+      > .expand > .expand__title .roster__itemBody {
+        color: @typo-primary;
+      }
+    }
+
+    &.roster__item_well {
+      > .roster__itemBody {
+        z-index: 2;
+      }
+
+      .roster__itemBodyWrapper:hover {
+        background-color: @bg-selected;
+      }
+
+      &.roster__item_selected {
+        > .roster__itemBg {
+          height: @item-height;
+        }
+
+        > .roster__itemBody:hover {
+          background-color: inherit;
+        }
+      }
+
+      .wellName {
+        display: flex;
+
+        flex: 1 1 auto;
+        min-width: 0;
+        //padding-left: 5px;
+
+        .wellName__text {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+      }
+
+      .wellError {
+        padding-right: 4px;
+        
+        color: red;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: normal;
+        line-height: 16px;
+        text-align: right;
+
+        .wellError__mape {
+          padding-left: 2px;
+
+          color: @typo-primary;
+          font-size: 8px;
+          line-height: 10px;
+          text-transform: uppercase;
+        }
+      }
+
+      .wellOptions {
+        display: flex;
+        flex-wrap: wrap;
+
+        align-items: stretch;
+        border-left: 1px solid @control-grey-400;
+        flex: 0 0 80px;
+        padding-left: 4px;
+      }
+
+      .wellMarks {
+        display: flex;
+
+        flex: 0 0 auto;
+        padding: 0 5px;
+      }
+
+      .wellScales {
+        display: flex;
+
+        align-items: stretch;
+        flex: 1 1 70px;
+        height: 8px;
+        opacity: 0.8;
+        margin-right: 8px;
+      }
+
+      &.roster__item_well:hover {
+        // .wellScales {
+        //   display: none;
+        // }
+
+        .oilTotal {
+          display: flex;
+        }
+      }
+
+      .oilTotal {
+        .oilTotal__value {
+          font-weight: normal;
+        }
+      }
+    }
+  }
+
+  .roster__itemInfo {
+    display: flex;
+
+    flex: 0 0 100%;
+  }
+
+  .roster__itemName {
+    margin-left: 5px;
+  }
+
+  .expand__title {
+    display: flex;
+
+    align-items: center;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+  }
+
+  .mark {
+    @side: 17px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: @side;
+    margin-left: 10px;
+    width: @side;
+
+    &.mark_stamp {
+      @color: rgba(120, 120, 120, 1);
+
+      border: 1px solid @color;
+      height: auto;
+      padding: 1px 2px;
+      width: auto;
+
+      color: @color;
+      font-size: 12px;
+      font-style: italic;
+      text-transform: uppercase;
+    }
+
+    &.mark_insim {
+      @color: goldenrod;
+
+      border: 1px solid @color;
+
+      color: @color;
+    }
+  }
+
+  .mapeInfo {
+    flex: 0 0 50px;
+
+    color: red;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 16px;
+    text-align: center;
+    text-transform: uppercase;
+
+    &.mapeInfo_label {
+      text-decoration: underline;
+    }
+  }
+
+  & &__search {
+    display: flex;
+
+    align-items: center;
+    border-radius: 3px;
+    border: 1px solid @control-grey-300;
+    color: @typo-placeholder;
+    height: 32px;
+    padding: 5px;
+
+    font-size: 14px;
+
+    & input {
+      color: @typo-primary;
+    }
+  }
+}
+
+.wellType {
+  // @side: 20px;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  // flex: 0 0 @side;
+  // height: @side;
+  // width: @side;
+}

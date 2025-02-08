@@ -1,0 +1,125 @@
+@import url("../../../../app/styles/common/colors.less");
+
+.legend {
+    display: flex;
+    flex: 1 0 auto;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding: 0 15px;
+
+    .legend__cell {
+        border-radius: 7px;
+        padding: 10px;
+        cursor: pointer;
+        user-select: none;
+
+        &.legend__cell_hidden {
+            opacity: 0.5;
+        }
+
+        &.legend__cell_active {
+            background-color: @control-light-yellow;
+        }
+
+        &:hover {
+            background-color: @bg-selected;
+        }
+    }
+
+    .legend__cellThumb {
+        @borderWidth: 2px;
+
+        @side: 14px;
+
+        border: none;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        border-radius: 9px;
+        height: 4px;
+        width: 50px;
+
+        &.legend__cellThumb_hidden {
+            opacity: 0.7;
+        }
+
+        &.legend__cellThumb_circle {
+            border-radius: 50%;
+        }
+
+        &.legend__cellThumb_dashed {
+            background-color: transparent;
+            border-style: dashed;
+            border-width: @borderWidth;
+        }
+
+        &.legend__cellThumb_solid {
+            background-color: transparent;
+            border-style: solid;
+            border-width: @borderWidth;
+        }
+    }
+
+    .legend__cellThumb.legend__cellThumb_stock {
+        background-color: @color-green;
+    }
+
+    .legend__cellThumb.legend__cellThumb_oilrate {
+        background-color: @paramColor-oilrate;
+
+        &.legend__cellThumb_dashed,
+        &.legend__cellThumb_solid {
+            background-color: transparent;
+            border-color: @paramColor-oilrate;
+        }
+    }
+
+    .legend__cellThumb.legend__cellThumb_liqrate {
+        background-color: @paramColor-liqrate;
+
+        &.legend__cellThumb_dashed,
+        &.legend__cellThumb_solid {
+            background-color: transparent;
+            border-color: @paramColor-liqrate;
+        }
+    }
+
+    .legend__cellThumb.legend__cellThumb_injection {
+        background-color: @paramColor-injection;
+
+        &.legend__cellThumb_dashed,
+        &.legend__cellThumb_solid {
+            background-color: transparent;
+            border-color: @paramColor-injection;
+        }
+    }
+
+    .legend__cellThumb.legend__cellThumb_pressure {
+        background-color: @paramColor-pressure;
+
+        &.legend__cellThumb_dashed,
+        &.legend__cellThumb_solid {
+            background-color: transparent;
+            border-color: @paramColor-pressure;
+        }
+    }
+
+    .legend__cellThumb.legend__cellThumb_watercut {
+        background-color: @paramColor-watercut;
+
+        &.legend__cellThumb_dashed,
+        &.legend__cellThumb_solid {
+            background-color: transparent;
+            border-color: @paramColor-watercut;
+        }
+    }
+
+    .legend__cellThumb.legend__cellThumb_skinfactor {
+        background-color: @paramColor-skinfactor;
+
+        &.legend__cellThumb_dashed,
+        &.legend__cellThumb_solid {
+            background-color: transparent;
+            border-color: @paramColor-skinfactor;
+        }
+    }
+}

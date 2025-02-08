@@ -1,0 +1,42 @@
+.tablet {
+    & &__wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    & &__content {
+        z-index: 1;
+    }
+
+    & &__toolsContainer {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    & &__tools {
+        position: absolute;
+        z-index: 100;
+
+        &_legend {
+            left: 19px;
+            top: 8px;
+            width: 250px;
+        }
+
+        &_zoom {
+            position: absolute;
+            right: 20px;
+            top: 10px;
+        }
+
+        &_actions {
+            position: absolute;
+            right: 120px;
+            top: 10px;
+        }
+    }
+}

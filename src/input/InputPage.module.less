@@ -1,0 +1,34 @@
+@import url("../app/styles/common/colors.less");
+
+.legend {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+
+    & &__item {
+        display: flex;
+        margin-right: 10px;
+        color: #000;
+        cursor: pointer;
+
+        &_active {
+            color: #aaa;
+        }
+    }
+}
+
+.wellsInWorkBar {
+    fill: lighten(@paramColor-stock, 60%);
+    stroke: @paramColor-stock;
+    stroke-width: 1px;
+}
+
+.contentContainer {
+    flex-direction: column;
+}
+
+.chartDates {
+    height: 60px;
+    padding: 0 85px;
+    width: 100%;
+}

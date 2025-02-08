@@ -1,0 +1,103 @@
+import i18n from 'i18next';
+import { always, cond, equals, T } from 'ramda';
+
+import mainDict from '../helpers/i18n/dictionary/main.json';
+
+export enum ParamNameEnum {
+    AbsDepth,
+    AccumulatedInjectionRate,
+    AccumulatedLiqRate,
+    AccumulatedOilProduction,
+    AccumulatedOutFlux,
+    AccumulatedGasVolumeProduction,
+    Aquifer,
+    AverageInflowProfile,
+    BubblePointPressure,
+    Compressibility,
+    ConversionFactor,
+    Density,
+    DynLevel,
+    Fbl,
+    GasVolumeRate,
+    GeologicalReserves,
+    InitialPressure,
+    InitialWaterSaturation,
+    InjectionRate,
+    LiqProduction,
+    LiqRate,
+    Lithology,
+    OilProduction,
+    OilRate,
+    OilSaturation,
+    PerforatedPower,
+    Perforation,
+    Permeability,
+    Porosity,
+    PressureRes,
+    PressureZab,
+    PressureZabOil,
+    PressureZabInjection,
+    ResidualOilSaturation,
+    Saturation,
+    SkinFactor,
+    Stock,
+    Transmissibility,
+    Viscosity,
+    WatercutVolume,
+    WatercutWeight
+}
+
+export const getLabel = (param: ParamNameEnum): string =>
+    cond([
+        [equals(ParamNameEnum.AbsDepth), always(i18n.t(mainDict.common.params.absDepth))],
+        [
+            equals(ParamNameEnum.AccumulatedInjectionRate),
+            always(i18n.t(mainDict.common.params.accumulatedInjectionRate))
+        ],
+        [equals(ParamNameEnum.AccumulatedLiqRate), always(i18n.t(mainDict.common.params.accumulatedLiqRate))],
+        [
+            equals(ParamNameEnum.AccumulatedOilProduction),
+            always(i18n.t(mainDict.common.params.accumulatedOilProduction))
+        ],
+        [equals(ParamNameEnum.AccumulatedOutFlux), always(i18n.t(mainDict.common.params.accumulatedOutFlux))],
+        [
+            equals(ParamNameEnum.AccumulatedGasVolumeProduction),
+            always(i18n.t(mainDict.common.params.accumulatedGasVolumeProduction))
+        ],
+        [equals(ParamNameEnum.Aquifer), always(i18n.t(mainDict.common.aquifer))],
+        [equals(ParamNameEnum.AverageInflowProfile), always(i18n.t(mainDict.common.params.averageInflowProfile))],
+        [equals(ParamNameEnum.BubblePointPressure), always(i18n.t(mainDict.common.params.bubblePointPressure))],
+        [equals(ParamNameEnum.Compressibility), always(i18n.t(mainDict.common.params.compressibility))],
+        [equals(ParamNameEnum.ConversionFactor), always(i18n.t(mainDict.common.params.conversionFactor))],
+        [equals(ParamNameEnum.Density), always(i18n.t(mainDict.common.params.density))],
+        [equals(ParamNameEnum.DynLevel), always(i18n.t(mainDict.common.params.dynLevel))],
+        [equals(ParamNameEnum.Fbl), always(i18n.t(mainDict.common.params.fbl))],
+        [equals(ParamNameEnum.GasVolumeRate), always(i18n.t(mainDict.common.params.gasVolumeRate))],
+        [equals(ParamNameEnum.GeologicalReserves), always(i18n.t(mainDict.common.params.geologicalReserves))],
+        [equals(ParamNameEnum.InitialPressure), always(i18n.t(mainDict.common.params.initialPressure))],
+        [equals(ParamNameEnum.InitialWaterSaturation), always(i18n.t(mainDict.common.params.initialWaterSaturation))],
+        [equals(ParamNameEnum.InjectionRate), always(i18n.t(mainDict.common.params.injectionRate))],
+        [equals(ParamNameEnum.LiqProduction), always(i18n.t(mainDict.common.params.liqProduction))],
+        [equals(ParamNameEnum.LiqRate), always(i18n.t(mainDict.common.params.liqRate))],
+        [equals(ParamNameEnum.Lithology), always(i18n.t(mainDict.common.params.lithology))],
+        [equals(ParamNameEnum.OilProduction), always(i18n.t(mainDict.common.params.oilProduction))],
+        [equals(ParamNameEnum.OilRate), always(i18n.t(mainDict.common.params.oilRate))],
+        [equals(ParamNameEnum.OilSaturation), always(i18n.t(mainDict.common.params.oilSaturation))],
+        [equals(ParamNameEnum.PerforatedPower), always(i18n.t(mainDict.common.params.perforatedPower))],
+        [equals(ParamNameEnum.Perforation), always(i18n.t(mainDict.common.params.perforation))],
+        [equals(ParamNameEnum.Permeability), always(i18n.t(mainDict.common.params.permeability))],
+        [equals(ParamNameEnum.Porosity), always(i18n.t(mainDict.common.params.porosity))],
+        [equals(ParamNameEnum.PressureRes), always(i18n.t(mainDict.common.params.pressureRes))],
+        [equals(ParamNameEnum.PressureZab), always(i18n.t(mainDict.common.params.pressureZab))],
+        [equals(ParamNameEnum.PressureZabOil), always(i18n.t(mainDict.common.params.pressureZabOil))],
+        [equals(ParamNameEnum.PressureZabInjection), always(i18n.t(mainDict.common.params.pressureZabInjection))],
+        [equals(ParamNameEnum.ResidualOilSaturation), always(i18n.t(mainDict.common.params.residualOilSaturation))],
+        [equals(ParamNameEnum.Saturation), always(i18n.t(mainDict.common.params.saturation))],
+        [equals(ParamNameEnum.SkinFactor), always(i18n.t(mainDict.common.params.skinFactor))],
+        [equals(ParamNameEnum.Stock), always(i18n.t(mainDict.common.params.stock))],
+        [equals(ParamNameEnum.Transmissibility), always(i18n.t(mainDict.common.params.transmissibility))],
+        [equals(ParamNameEnum.Viscosity), always(i18n.t(mainDict.common.params.viscosity))],
+        [equals(ParamNameEnum.WatercutVolume), always(i18n.t(mainDict.common.params.watercutVolume))],
+        [equals(ParamNameEnum.WatercutWeight), always(i18n.t(mainDict.common.params.watercutWeight))],
+        [T, always('')]
+    ])(param);
