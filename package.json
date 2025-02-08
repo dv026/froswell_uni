@@ -7,6 +7,7 @@
         "start": "webpack serve --no-open",
         "build:dev": "webpack --env mode=development",
         "build:prod": "webpack --env mode=production",
+        "build": "webpack --env mode=production",
         "build:release": "webpack --env mode=production metrik=yandex",
         "prettier": "npx prettier --write **/*.{ts,tsx,json}",
         "lint:ts": "eslint \"./src/**/*.{ts,tsx}\"",
