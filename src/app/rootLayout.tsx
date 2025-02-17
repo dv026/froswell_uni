@@ -60,7 +60,8 @@ const RootLayout = memo(function RootLayout() {
           </div>
         )
       }} >
-            <AuthOutlet/>
+              {/* <Stairway /> */}
+              <AuthOutlet/>
             </DashboardLayout>
             </AppProvider>
             <ToastContainer />
