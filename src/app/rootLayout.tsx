@@ -99,7 +99,7 @@ const NAVIGATION = [
       icon: <AddchartIcon />,
     },
     {
-        segment: 'optimization/preparation',
+        segment: 'proxy/calculation',
         title: 'Calculation',
         icon: <CalculateIcon />,
     }

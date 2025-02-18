@@ -40,7 +40,7 @@ export const DirectedStages: React.FC<DirectedStagesProps> = (p: DirectedStagesP
 
     return (
         <ButtonGroup spacing={0} variant='stage' className={css.directedStages} pb={'10px'}>
-            {mapIndexed((item: CommonDirectedStageEnum, index: number) => {
+            {p.stages.map((item: CommonDirectedStageEnum, index: number) => {
                 return (
                     <Fragment key={item}>
                         <Stage
@@ -60,7 +60,8 @@ export const DirectedStages: React.FC<DirectedStagesProps> = (p: DirectedStagesP
                         ) : null}
                     </Fragment>
                 );
-            }, p.stages)}
+            }
+            )}
         </ButtonGroup>
     );
 };
@@ -86,6 +87,7 @@ const Stage: React.FC<StageProps> = (p: StageProps) => {
             isDisabled={p.disabled}
             minWidth='140px'
             width='auto'
+            padding="25px 14px 0 14px"
             onClick={() => p.onClick(p.value)}
         >
             <Box className={css.boxIcon}>
@@ -95,7 +97,9 @@ const Stage: React.FC<StageProps> = (p: StageProps) => {
                     React.cloneElement(p.icon, { boxSize: size })
                 )}
             </Box>
+            <div>
             {p.label}
+            </div>
         </Button>
     );
 };
